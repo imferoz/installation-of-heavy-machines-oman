@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /temp/
+Sitemap: https://installation-of-heavy-machines-oman.alwejhagroup.com/sitemap.xml
+Crawl-delay: 5
+User-agent: ChatGPT-User
+Disallow: /
