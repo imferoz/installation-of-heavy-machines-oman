@@ -12,6 +12,7 @@
       --safety-orange: #e74c3c;
       --crane-yellow: #f1c40f;
       --light-bg: #f5f6fa;
+      --nav-hover: #1a2634;
     }
     
     body {
@@ -29,13 +30,35 @@
       text-align: center;
     }
     
-    /* Benchmark Navigation */
+    /* Enhanced Navigation */
     nav {
-      background-color: white;
-      padding: 15px 0;
+      background-color: var(--industrial-blue);
+      padding: 0;
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    nav a:hover {
+      background-color: var(--nav-hover);
+      border-bottom-color: var(--crane-yellow);
     }
     
     .container {
@@ -63,19 +86,96 @@
     .service-card {
       background: white;
       border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
       border-top: 4px solid var(--safety-orange);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* Contact CTA Styles */
+    .contact-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 30px 0;
+      justify-content: center;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    
+    .call {
+      background: var(--industrial-blue);
+      color: white;
+    }
+    
+    .email {
+      background: var(--safety-orange);
+      color: white;
+    }
+    
+    .website {
+      background: var(--crane-yellow);
+      color: var(--industrial-blue);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .cta-button i {
+      margin-right: 8px;
+      font-size: 1.2em;
     }
     
     footer {
       background-color: var(--industrial-blue);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       margin-top: 40px;
     }
+    
+    @media (max-width: 768px) {
+      .nav-container {
+        justify-content: space-around;
+      }
+      
+      nav a {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .contact-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
@@ -84,12 +184,12 @@
   </header>
 
   <nav>
-    <div class="container">
-      <a href="https://www.alwejhagroup.com/">Home</a>
-      <a href="https://www.alwejhagroup.com/area-of-expertise">Area Of Expertise</a>
-      <a href="https://www.alwejhagroup.com/our-services">Our Services</a>
-      <a href="https://www.alwejhagroup.com/our-clients">Our Clients</a>
-      <a href="https://www.alwejhagroup.com/contact">Contact</a>
+    <div class="nav-container">
+      <a href="https://www.alwejhagroup.com/"><i class="fas fa-home"></i> Home</a>
+      <a href="https://www.alwejhagroup.com/area-of-expertise"><i class="fas fa-cogs"></i> Expertise</a>
+      <a href="https://www.alwejhagroup.com/our-services"><i class="fas fa-tools"></i> Services</a>
+      <a href="https://www.alwejhagroup.com/our-clients"><i class="fas fa-users"></i> Clients</a>
+      <a href="https://www.alwejhagroup.com/contact"><i class="fas fa-envelope"></i> Contact</a>
     </div>
   </nav>
 
@@ -103,7 +203,7 @@
       <h2>Our Installation Services</h2>
       <div class="service-grid">
         <div class="service-card">
-          <h3>Crane Installation</h3>
+          <h3><i class="fas fa-crane"></i> Crane Installation</h3>
           <ul>
             <li>Tower, mobile and gantry cranes</li>
             <li>Load testing and certification</li>
@@ -112,7 +212,7 @@
         </div>
         
         <div class="service-card">
-          <h3>Compressor Systems</h3>
+          <h3><i class="fas fa-compress-arrows-alt"></i> Compressor Systems</h3>
           <ul>
             <li>Centrifugal & reciprocating compressors</li>
             <li>Piping and manifold setup</li>
@@ -121,7 +221,7 @@
         </div>
         
         <div class="service-card">
-          <h3>Turbine Commissioning</h3>
+          <h3><i class="fas fa-tachometer-alt"></i> Turbine Commissioning</h3>
           <ul>
             <li>Gas and steam turbines</li>
             <li>Alignment and balancing</li>
@@ -131,19 +231,36 @@
       </div>
     </section>
 
-    <section style="background: var(--industrial-blue); color: white; padding: 30px; border-radius: 8px; margin: 40px 0;">
+    <div class="contact-cta">
+      <a href="https://wa.me/96879271055" class="cta-button whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="tel:+96879271055" class="cta-button call">
+        <i class="fas fa-phone"></i> Call Us
+      </a>
+      <a href="mailto:heavyequipment@alwejhagroup.com" class="cta-button email">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="https://www.alwejhagroup.com" class="cta-button website">
+        <i class="fas fa-globe"></i> Visit Website
+      </a>
+    </div>
+
+    <section style="background: var(--industrial-blue); color: white; padding: 30px; border-radius: 8px;">
       <h2>Safety First Approach</h2>
       <p>Our certified teams follow strict safety protocols for all installations including:</p>
       <ul>
         <li>Lifting operations and rigging safety</li>
         <li>Hazardous area installations</li>
         <li>Confined space entry procedures</li>
+        <li>Emergency response protocols</li>
       </ul>
     </section>
   </div>
 
   <footer>
     <p>&copy; 2025 AL WEJHA GROUP | Heavy Equipment Division</p>
+    <p>Servicing all industrial zones across Oman</p>
   </footer>
 </body>
 </html>
